@@ -125,11 +125,13 @@ class TabuleiroHex:
         return None
 
 # -------------------------------------------------------
-# Heurística: Avaliação do tabuleiro para o algoritmo Minimax
+# Heurística: Avaliação do tabuleiro (IA e Poda Alfa-Beta)
 # -------------------------------------------------------
 def avaliar_tabuleiro(tabuleiro, jogador):
     oponente = VERMELHO if jogador == AZUL else AZUL
     vencedor = tabuleiro.vencedor()
+
+    # Casos de vitória ou derrota imediata
     if vencedor == jogador:
         return 1000  # Vitória
     elif vencedor == oponente:
@@ -137,28 +139,67 @@ def avaliar_tabuleiro(tabuleiro, jogador):
 
     pontuacao = 0
     n = tabuleiro.n
+
+    # Avaliação por peças e conexões
     for r in range(n):
         for c in range(n):
             p = tabuleiro.grade[r][c]
             if p == jogador:
-                pontuacao += 5  # Celula do jogador → +5
-                for rr, cc in tabuleiro.vizinhos(r,c):
+                pontuacao += 5  # Célula do jogador → +5
+
+                # Bônus por vizinhos do mesmo jogador
+                for rr, cc in tabuleiro.vizinhos(r, c):
                     if tabuleiro.grade[rr][cc] == jogador:
-                        pontuacao += 2  # Adjacente → +2
+                        pontuacao += 2  # Conexão próxima → +2
+
+                    elif tabuleiro.grade[rr][cc] == oponente:
+                        pontuacao -= 1.5  # Penaliza bloqueio direto
+
+                # Bônus extra por alinhamento na direção da vitória
+                if jogador == AZUL and c < n - 1 and tabuleiro.grade[r][c + 1] == jogador:
+                    pontuacao += 3
+                elif jogador == VERMELHO and r < n - 1 and tabuleiro.grade[r + 1][c] == jogador:
+                    pontuacao += 3
+
+                # Bônus leve por peças em bordas úteis
+                if jogador == AZUL and (c == 0 or c == n - 1):
+                    pontuacao += 1
+                if jogador == VERMELHO and (r == 0 or r == n - 1):
+                    pontuacao += 1
+
             elif p == oponente:
-                pontuacao -= 3  # Celula do oponente → -3
+                pontuacao -= 5  # Célula do oponente → -5
+
+    # -------------------------------------------------------
+    # Heurística extra: "bloqueio iminente"
+    # Se o oponente estiver a uma jogada de vencer, penalizar fortemente
+    # -------------------------------------------------------
+    for r, c in tabuleiro.jogadas_possiveis():
+        tabuleiro.jogar(r, c, oponente)
+        if tabuleiro.vencedor() == oponente:
+            pontuacao -= 200  # Penalização forte
+        tabuleiro.desfazer(r, c)
+
     return pontuacao
 
 # -------------------------------------------------------
-# Ordena jogadas mais próximas do centro
+# Ordena jogadas mais próximas das peças do jogador
 # -------------------------------------------------------
 def ordenar_jogadas(tabuleiro):
     n = tabuleiro.n
-    centro = n / 2
     jogadas = tabuleiro.jogadas_possiveis()
-    # Ordena jogadas pela distância ao centro
-    jogadas.sort(key=lambda mc: (mc[0]-centro)**2 + (mc[1]-centro)**2)
-    return jogadas
+    jogador = AZUL  # Mantém foco na IA
+
+    # Calcula "proximidade" com base em vizinhos do jogador
+    proximidades = []
+    for r, c in jogadas:
+        score = sum(1 for rr, cc in tabuleiro.vizinhos(r, c)
+                    if tabuleiro.grade[rr][cc] == jogador)
+        proximidades.append((r, c, -score))  # Negativo → ordenar desc
+
+    # Ordena jogadas mais promissoras primeiro
+    proximidades.sort(key=lambda x: x[2])
+    return [(r, c) for r, c, _ in proximidades]
 
 # -------------------------------------------------------
 # Algoritmo Minimax Padrão

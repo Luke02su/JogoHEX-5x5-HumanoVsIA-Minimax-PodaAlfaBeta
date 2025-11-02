@@ -1,7 +1,7 @@
 # Relatório Técnico – Inteligência artificial aplicada ao Jogo Hexagonal com Minimax e Poda Alfa-Beta
 
 Autor: Lucas Samuel Dias<br>
-Professor(a):Dr. Danielle<br>
+Professor(a): Dr. Danielle<br>
 Discipina: Integência Computacional e Artificial
 
 ## 1.Introdução

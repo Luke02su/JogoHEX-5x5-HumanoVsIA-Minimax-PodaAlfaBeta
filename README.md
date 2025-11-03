@@ -29,7 +29,8 @@ Discipina: Integência Computacional e Artificial
 - Profundidade 2: diferença pequena, mas a poda já começa a ser perceptível.
 - Profundidade 3: o Minimax apresenta lentidão significativa, enquanto a Poda Alfa-Beta mantém boa fluidez.
 - Profundidade 4: o Minimax torna-se praticamente inviável em tempo real, enquanto a Poda Alfa-Beta ainda opera dentro de limites aceitáveis.
-
+    Notou-se, para tabuleiros maiores, como 7x7, 9x9, 11x11, uma demora bastante acentuada para profundidades mais altas, como a de 4. Portanto, com isso, preferiu-se não ser testado em profundidades maiores, bem como manter o tabuleiro em 5x5, seguindo, assim, às recomendações da professora para se garantir a otimidade sem custar tempo de processamento para obtê-la.
+  
 ### 2.5 Função Heurística
 
   A função heurística de avaliação implementada avalia o estado atual do tabuleiro com base em critérios como número de posições ocupadas e proximidade da vitória. Essa heurística permite à IA estimar o quão favorável é uma situação, mesmo sem explorar todas as possibilidades até o fim da partida.
@@ -44,6 +45,6 @@ Discipina: Integência Computacional e Artificial
 
 ## 3 Conclusão
 
-  O projeto demonstrou com sucesso a aplicação dos algoritmos Minimax e Poda Alfa-Beta no contexto de um jogo hexagonal interativo. A análise confirmou que, embora o Minimax produza decisões corretas, seu custo computacional cresce rapidamente com a profundidade. Já a Poda Alfa-Beta mantém o mesmo resultado lógico, porém com desempenho muito superior. A inclusão da heurística e da medição de tempo da IA proporcionou uma visão mais profunda sobre a eficiência do processo de decisão. Como trabalho futuro, propõe-se a inclusão de heurísticas adaptativas e otimização adicional para busca mais profunda sem perda de desempenho.
+  O projeto demonstrou com sucesso a aplicação dos algoritmos Minimax e Poda Alfa-Beta no contexto de um jogo hexagonal interativo. A análise confirmou que, embora o Minimax produza decisões corretas, seu custo computacional cresce rapidamente com a profundidade. Já a Poda Alfa-Beta mantém o mesmo resultado lógico, porém com desempenho muito superior. A inclusão da heurística e da medição de tempo da IA proporcionou uma visão mais profunda sobre a eficiência do processo de decisão. Como trabalho futuro, propõe-se a inclusão de heurísticas adaptativas e otimização adicional para busca mais profunda sem perda de desempenho.<br>
 
-O projeto demonstrou com sucesso a aplicação dos algoritmos Minimax e Poda Alfa-Beta no contexto de um jogo hexagonal interativo. A análise confirmou que, embora o Minimax produza decisões corretas, seu custo computacional cresce rapidamente com a profundidade. Já a Poda Alfa-Beta mantém o mesmo resultado lógico, porém com desempenho muito superior. A inclusão da heurística e da medição de tempo da IA proporcionou uma visão mais profunda sobre a eficiência do processo de decisão. Como trabalho futuro, propõe-se a inclusão de heurísticas adaptativas e otimização adicional para busca mais profunda sem perda de desempenho.
+  O projeto demonstrou com sucesso a aplicação dos algoritmos Minimax e Poda Alfa-Beta no contexto de um jogo hexagonal interativo. A análise confirmou que, embora o Minimax produza decisões corretas, seu custo computacional cresce rapidamente com a profundidade. Já a Poda Alfa-Beta mantém o mesmo resultado lógico, porém com desempenho muito superior. A inclusão da heurística e da medição de tempo da IA proporcionou uma visão mais profunda sobre a eficiência do processo de decisão. Como trabalho futuro, propõe-se a inclusão de heurísticas adaptativas e otimização adicional para busca mais profunda sem perda de desempenho.

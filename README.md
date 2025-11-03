@@ -31,7 +31,7 @@ Discipina: Integência Computacional e Artificial
 - Profundidade 3: o Minimax apresenta lentidão significativa, enquanto a Poda Alfa-Beta mantém boa fluidez.
 - Profundidade 4: o Minimax torna-se praticamente inviável em tempo real, enquanto a Poda Alfa-Beta ainda opera dentro de limites aceitáveis.
 
-  <p>Notou-se, para tabuleiros maiores, como 7x7, 9x9, 11x11, uma demora bastante acentuada para profundidades mais altas, como a de 4. Portanto, com isso, preferiu-se não ser testado em profundidades maiores, bem como manter o tabuleiro em 5x5, seguindo, assim, às recomendações da professora para se garantir a otimidade sem custar tempo de processamento para obtê-la.</p>
+  <p text-align="left">Notou-se, para tabuleiros maiores, como 7x7, 9x9, 11x11, uma demora bastante acentuada para profundidades mais altas, como a de 4. Portanto, com isso, preferiu-se não ser testado em profundidades maiores, bem como manter o tabuleiro em 5x5, seguindo, assim, às recomendações da professora para se garantir a otimidade sem custar tempo de processamento para obtê-la.</p>
   
 ### 2.5 Função Heurística
 

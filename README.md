@@ -25,10 +25,12 @@ Discipina: Integência Computacional e Artificial
 ### 2.4 Comparação de Desempenho
 
   Foram realizados testes comparativos entre o Minimax e a Poda Alfa-Beta, variando a profundidade de busca de 1 a 4 níveis. Observou-se que o Minimax apresenta um crescimento exponencial no tempo de processamento, enquanto a Poda Alfa-Beta mantém tempos muito mais baixos devido à eliminação de ramos desnecessários. A seguir, uma análise qualitativa dos resultados:
+  
 - Profundidade 1: ambos os algoritmos apresentam resposta imediata.
 - Profundidade 2: diferença pequena, mas a poda já começa a ser perceptível.
 - Profundidade 3: o Minimax apresenta lentidão significativa, enquanto a Poda Alfa-Beta mantém boa fluidez.
-- Profundidade 4: o Minimax torna-se praticamente inviável em tempo real, enquanto a Poda Alfa-Beta ainda opera dentro de limites aceitáveis.<br><br>
+- Profundidade 4: o Minimax torna-se praticamente inviável em tempo real, enquanto a Poda Alfa-Beta ainda opera dentro de limites aceitáveis.
+
   <p>Notou-se, para tabuleiros maiores, como 7x7, 9x9, 11x11, uma demora bastante acentuada para profundidades mais altas, como a de 4. Portanto, com isso, preferiu-se não ser testado em profundidades maiores, bem como manter o tabuleiro em 5x5, seguindo, assim, às recomendações da professora para se garantir a otimidade sem custar tempo de processamento para obtê-la.</p>
   
 ### 2.5 Função Heurística
